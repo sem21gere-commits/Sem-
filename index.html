@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semere Gebremeskel | Portfolio</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f4f6f9;
+color:#333;
+transition:0.4s;
+}
+
+/* DARK MODE */
+
+body.dark{
+background:#121212;
+color:#eee;
+}
+
+/* HEADER */
+
+header{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#0a66c2,#004182);
+color:white;
+}
+
+header h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+header p{
+font-size:18px;
+opacity:0.9;
+}
+
+button{
+padding:10px 18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.cv-btn{
+background:#fff;
+color:#0a66c2;
+margin-top:20px;
+font-weight:bold;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:center;
+gap:30px;
+background:#222;
+padding:15px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#0a66c2;
+}
+
+/* DARK TOGGLE */
+
+.toggle{
+position:fixed;
+top:20px;
+right:20px;
+background:#222;
+color:white;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1000px;
+margin:auto;
+padding:60px 20px;
+}
+
+h2{
+margin-bottom:25px;
+color:#0a66c2;
+}
+
+/* CARDS */
+
+.card{
+background:white;
+padding:25px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+body.dark .card{
+background:#1e1e1e;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* SKILLS */
+
+.skills span{
+display:inline-block;
+background:#0a66c2;
+color:white;
+padding:8px 12px;
+margin:6px;
+border-radius:6px;
+font-size:14px;
+}
+
+/* PROJECTS */
+
+.project{
+display:grid;
+grid-template-columns:1fr 2fr;
+gap:20px;
+align-items:center;
+}
+
+.project img{
+width:100%;
+border-radius:10px;
+}
+
+.project a{
+display:inline-block;
+margin-top:10px;
+color:#0a66c2;
+font-weight:bold;
+}
+
+/* CONTACT */
+
+.contact p{
+margin:8px 0;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:#222;
+color:white;
+margin-top:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.project{
+grid-template-columns:1fr;
+}
+
+header h1{
+font-size:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<button class="toggle" onclick="toggleMode()">🌙</button>
+
+<header>
+<h1>Semere Gebremeskel</h1>
+<p>Software Engineering Student | Machine Learning Enthusiast</p>
+
+<button class="cv-btn">Download CV</button>
+</header>
+
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+<h2>About Me</h2>
+
+<div class="card">
+<p>
+Hello! I am Semere Gebremeskel, a Software Engineering student passionate
+about building intelligent software systems. My interests include
+machine learning, mobile application development, and backend web systems.
+
+I enjoy solving complex problems through programming and creating
+applications that deliver real-world value.
+</p>
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2>Technical Skills</h2>
+
+<div class="card skills">
+
+<span>Python</span>
+<span>JavaScript</span>
+<span>Dart</span>
+<span>Flutter</span>
+<span>Node.js</span>
+<span>Machine Learning</span>
+<span>REST APIs</span>
+<span>Git</span>
+<span>SQL</span>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="card project">
+
+<img src="https://picsum.photos/300/200">
+
+<div>
+<h3>Wine Quality Prediction</h3>
+
+
+<a href="#">View on GitHub</a>
+
+</div>
+
+</div>
+
+<div class="card project">
+
+<img src="https://picsum.photos/301/200">
+
+<div>
+<h3>Flutter Mobile Application</h3>
+
+<p>
+A mobile application built with Flutter focusing on modern UI design
+and efficient performance.
+</p>
+
+<a href="#">View on GitHub</a>
+
+</div>
+
+</div>
+
+<div class="card project">
+
+<img src="https://picsum.photos/302/200">
+
+<div>
+<h3>Node.js Backend API</h3>
+
+<p>
+Secure REST API built with Node.js and Express for authentication,
+database management, and application services.
+</p>
+
+<a href="#">View on GitHub</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<div class="card contact">
+
+<p>Email: semere@example.com</p>
+<p>GitHub: github.com/semere</p>
+<p>LinkedIn: linkedin.com/in/semere</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Semere Gebremeskel | Portfolio</p>
+
+</footer>
+
+<script>
+
+function toggleMode(){
+
+document.body.classList.toggle("dark")
+
+}
+
+</script>
+
+</body>
+</html>
