@@ -3,190 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semere Gebremeskel | Portfolio</title>
+<title>Sem Gere | Portfolio</title>
 
 <style>
-
 /* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', Helvetica, sans-serif;
 }
 
-body{
-background:#f4f6f9;
-color:#333;
-transition:0.4s;
+body {
+  background: #f4f6f9;
+  color: #333;
+  transition: 0.4s;
+  scroll-behavior: smooth;
 }
 
 /* DARK MODE */
-
-body.dark{
-background:#121212;
-color:#eee;
+body.dark {
+  background: #121212;
+  color: #eee;
 }
 
 /* HEADER */
-
-header{
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(135deg,#0a66c2,#004182);
-color:white;
+header {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  color: white;
 }
 
-header h1{
-font-size:40px;
-margin-bottom:10px;
+header h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-header p{
-font-size:18px;
-opacity:0.9;
+header p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 20px;
 }
 
-button{
-padding:10px 18px;
-border:none;
-border-radius:6px;
-cursor:pointer;
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.cv-btn{
-background:#fff;
-color:#0a66c2;
-margin-top:20px;
-font-weight:bold;
+button:hover {
+  opacity: 0.9;
+}
+
+.cv-btn {
+  background: #fff;
+  color: #0a66c2;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /* NAVBAR */
-
-nav{
-display:flex;
-justify-content:center;
-gap:30px;
-background:#222;
-padding:15px;
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: #222;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-nav a:hover{
-color:#0a66c2;
+nav a:hover {
+  color: #0a66c2;
 }
 
 /* DARK TOGGLE */
-
-.toggle{
-position:fixed;
-top:20px;
-right:20px;
-background:#222;
-color:white;
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #222;
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* SECTIONS */
-
-section{
-max-width:1000px;
-margin:auto;
-padding:60px 20px;
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px 20px;
 }
 
-h2{
-margin-bottom:25px;
-color:#0a66c2;
+h2 {
+  margin-bottom: 25px;
+  color: #0a66c2;
+  border-bottom: 2px solid #0a66c2;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
 /* CARDS */
-
-.card{
-background:white;
-padding:25px;
-margin-bottom:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-transition:0.3s;
+.card {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
-body.dark .card{
-background:#1e1e1e;
+body.dark .card {
+  background: #1e1e1e;
 }
 
-.card:hover{
-transform:translateY(-5px);
+.card:hover {
+  transform: translateY(-5px);
 }
 
 /* SKILLS */
-
-.skills span{
-display:inline-block;
-background:#0a66c2;
-color:white;
-padding:8px 12px;
-margin:6px;
-border-radius:6px;
-font-size:14px;
+.skills span {
+  display: inline-block;
+  background: #0a66c2;
+  color: white;
+  padding: 8px 12px;
+  margin: 6px;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
 /* PROJECTS */
-
-.project{
-display:grid;
-grid-template-columns:1fr 2fr;
-gap:20px;
-align-items:center;
+.project {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  align-items: center;
 }
 
-.project img{
-width:100%;
-border-radius:10px;
+.project img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
 }
 
-.project a{
-display:inline-block;
-margin-top:10px;
-color:#0a66c2;
-font-weight:bold;
+.project img:hover {
+  transform: scale(1.05);
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0a66c2;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.project a:hover {
+  text-decoration: underline;
 }
 
 /* CONTACT */
+.contact p {
+  margin: 8px 0;
+}
 
-.contact p{
-margin:8px 0;
+.contact a {
+  color: #0a66c2;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
 }
 
 /* FOOTER */
-
-footer{
-text-align:center;
-padding:30px;
-background:#222;
-color:white;
-margin-top:40px;
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #222;
+  color: white;
+  margin-top: 40px;
 }
 
 /* MOBILE */
+@media(max-width:700px) {
+  .project {
+    grid-template-columns: 1fr;
+  }
 
-@media(max-width:700px){
-
-.project{
-grid-template-columns:1fr;
+  header h1 {
+    font-size: 28px;
+  }
 }
-
-header h1{
-font-size:28px;
-}
-
-}
-
 </style>
 </head>
 
@@ -195,139 +220,92 @@ font-size:28px;
 <button class="toggle" onclick="toggleMode()">🌙</button>
 
 <header>
-<h1>Semere Gebremeskel</h1>
-<p>Software Engineering Student | Machine Learning Enthusiast</p>
-
-<button class="cv-btn">Download CV</button>
+  <h1>Semere Gebremeskel</h1>
+  <p>Software Engineering Student | Machine Learning Enthusiast</p>
+  <a class="cv-btn" href="https://sem-gere.com/semere-cv.pdf" target="_blank">Download CV</a>
 </header>
 
 <nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
-<h2>About Me</h2>
-
-<div class="card">
-<p>
-Hello! I am Semere Gebremeskel, a Software Engineering student passionate
-about building intelligent software systems. My interests include
-machine learning, mobile application development, and backend web systems.
-
-I enjoy solving complex problems through programming and creating
-applications that deliver real-world value.
-</p>
-</div>
-
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      Hello! I am Sem Gere, a computer science student passionate
+      about building intelligent software systems. My interests include
+      machine learning, mobile application development, and backend web systems.
+      <br><br>
+      I enjoy solving complex problems through programming and creating
+      applications that deliver real-world value.
+    </p>
+  </div>
 </section>
 
 <section id="skills">
-
-<h2>Technical Skills</h2>
-
-<div class="card skills">
-
-<span>Python</span>
-<span>JavaScript</span>
-<span>Dart</span>
-<span>Flutter</span>
-<span>Node.js</span>
-<span>Machine Learning</span>
-<span>REST APIs</span>
-<span>Git</span>
-<span>SQL</span>
-
-</div>
-
+  <h2>Technical Skills</h2>
+  <div class="card skills">
+    <span>Python</span>
+    <span>JavaScript</span>
+    <span>Dart</span>
+    <span>Flutter</span>
+    <span>Node.js</span>
+    <span>Machine Learning</span>
+    <span>REST APIs</span>
+    <span>Git</span>
+    <span>SQL</span>
+  </div>
 </section>
 
 <section id="projects">
+  <h2>Projects</h2>
 
-<h2>Projects</h2>
+  <div class="card project">
+    <img src="https://picsum.photos/300/200" alt="Wine Quality Prediction">
+   
+  </div>
 
-<div class="card project">
+  <div class="card project">
+    <img src="https://picsum.photos/301/200" alt="Flutter Mobile App">
+    <div>
+      <h3>Flutter Mobile Application</h3>
+      <p>A mobile app built with Flutter focusing on modern UI design and smooth performance.</p>
+      <a href="https://github.com/sem21gere-commits/flutter-mobile-app" target="_blank">View on GitHub</a>
+    </div>
+  </div>
 
-<img src="https://picsum.photos/300/200">
-
-<div>
-<h3>Wine Quality Prediction</h3>
-
-
-<a href="#">View on GitHub</a>
-
-</div>
-
-</div>
-
-<div class="card project">
-
-<img src="https://picsum.photos/301/200">
-
-<div>
-<h3>Flutter Mobile Application</h3>
-
-<p>
-A mobile application built with Flutter focusing on modern UI design
-and efficient performance.
-</p>
-
-<a href="#">View on GitHub</a>
-
-</div>
-
-</div>
-
-<div class="card project">
-
-<img src="https://picsum.photos/302/200">
-
-<div>
-<h3>Node.js Backend API</h3>
-
-<p>
-Secure REST API built with Node.js and Express for authentication,
-database management, and application services.
-</p>
-
-<a href="#">View on GitHub</a>
-
-</div>
-
-</div>
+  <div class="card project">
+    <img src="https://picsum.photos/302/200" alt="Node.js Backend API">
+    <div>
+      <h3>Node.js Backend API</h3>
+      <p>Secure REST API built with Node.js and Express for authentication and database management.</p>
+      <a href="https://github.com/sem21gere-commits/nodejs-backend-api" target="_blank">View on GitHub</a>
+    </div>
+  </div>
 
 </section>
 
 <section id="contact">
-
-<h2>Contact</h2>
-
-<div class="card contact">
-
-<p>Email: sem21gere@gmail.com</p>
-<p>GitHub: github.com/Sem-</p>
-<p>LinkedIn: linkedin.com/in/sem-gere-0294933b3</p>
-
-</div>
-
+  <h2>Contact</h2>
+  <div class="card contact">
+    <p>Email: <a href="mailto:sem21gere@gmail.com">sem21gere@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/sem21gere-commits" target="_blank">View on GitHub</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sem-gere-0294933b3" target="_blank">linkedin.com/in/semere</a></p>
+  </div>
 </section>
 
 <footer>
-
-<p>© 2026 Semere Gebremeskel | Portfolio</p>
-
+  <p>© 2026 Sem Gere | Portfolio</p>
 </footer>
 
 <script>
-
-function toggleMode(){
-
-document.body.classList.toggle("dark")
-
+function toggleMode() {
+  document.body.classList.toggle("dark");
 }
-
 </script>
 
 </body>
