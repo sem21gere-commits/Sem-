@@ -1,520 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Sem Gere · smart portfolio</title>
-  <!-- Font Awesome 6 (free) for crisp icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>Sem Gere | Portfolio</title>
 
-    body {
-      background: #f0f2f5;
-      color: #1e293b;
-      transition: background 0.3s ease, color 0.2s ease;
-      scroll-behavior: smooth;
-      line-height: 1.5;
-      width: 100%;
-      overflow-x: hidden;
-    }
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', Helvetica, sans-serif;
+}
 
-    /* dark mode */
-    body.dark {
-      background: #0f172a;
-      color: #e2e8f0;
-    }
+body {
+  background: #f4f6f9;
+  color: #333;
+  transition: 0.4s;
+  scroll-behavior: smooth;
+}
 
-    /* global link & card style */
-    a {
-      text-decoration: none;
-    }
+/* DARK MODE */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
 
-    .card {
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(2px);
-      border-radius: 24px;
-      padding: 1.5rem;
-      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.07);
-      transition: transform 0.25s, box-shadow 0.3s, background 0.3s;
-      border: 1px solid rgba(255,255,255,0.4);
-      width: 100%;
-      margin-bottom: 1rem;
-    }
+/* HEADER */
+header {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  color: white;
+}
 
-    body.dark .card {
-      background: #1e293b;
-      border-color: #334155;
-    }
+header h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
 
-    /* toggle button */
-    .toggle {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.6);
-      width: 44px;
-      height: 44px;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 999;
-      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15);
-      color: #0f172a;
-    }
+header p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
 
-    body.dark .toggle {
-      background: #1e293b;
-      border-color: #475569;
-      color: #facc15;
-    }
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    /* header */
-    header {
-      padding: 3rem 1rem 2.5rem;
-      background: linear-gradient(145deg, #0a2647, #10355e);
-      color: white;
-      text-align: center;
-      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
-      width: 100%;
-    }
+button:hover {
+  opacity: 0.9;
+}
 
-    header h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      background: linear-gradient(to right, #ffffff, #dbeafe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.cv-btn {
+  background: #fff;
+  color: #0a66c2;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block; /* Added for mobile */
+}
 
-    header p {
-      font-size: 1rem;
-      opacity: 0.9;
-      font-weight: 300;
-      margin: 0.8rem 0 1.5rem;
-      padding: 0 0.5rem;
-    }
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: #222;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap; /* ADDED: allows nav items to wrap on mobile */
+}
 
-    .cv-btn {
-      background: white;
-      color: #0a2647;
-      padding: 0.8rem 1.8rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      box-shadow: 0 10px 15px -5px #020617;
-      display: inline-block;
-      border: 1px solid transparent;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  padding: 5px 0; /* ADDED: better touch target */
+}
 
-    .cv-btn i { margin-right: 6px; }
+nav a:hover {
+  color: #0a66c2;
+}
 
-    /* navigation – mobile first */
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      background: rgba(18, 25, 40, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 0.8rem 1rem;
-      position: sticky;
-      top: 10px;
-      z-index: 100;
-      width: 90%;
-      margin: 0 auto 1rem;
-      border-radius: 50px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
+/* DARK TOGGLE */
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #222;
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000; /* ADDED: ensure it's always on top */
+}
 
-    nav a {
-      color: #f1f5f9;
-      font-weight: 500;
-      font-size: 0.9rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 30px;
-      transition: 0.2s;
-      white-space: nowrap;
-    }
+/* SECTIONS */
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px 20px;
+  width: 100%; /* ADDED: ensure full width on mobile */
+  overflow-x: hidden; /* ADDED: prevent horizontal scroll */
+}
 
-    nav a:hover {
-      background: rgba(255,255,255,0.1);
-    }
+h2 {
+  margin-bottom: 25px;
+  color: #0a66c2;
+  border-bottom: 2px solid #0a66c2;
+  display: inline-block;
+  padding-bottom: 5px;
+  word-break: break-word; /* ADDED: prevent text overflow */
+}
 
-    body.dark nav {
-      background: rgba(30, 41, 59, 0.95);
-    }
+/* CARDS */
+.card {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  width: 100%; /* ADDED: full width on mobile */
+  word-wrap: break-word; /* ADDED: prevent text overflow */
+}
 
-    /* sections */
-    section {
-      max-width: 100%;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
+body.dark .card {
+  background: #1e1e1e;
+}
 
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+.card:hover {
+  transform: translateY(-5px);
+}
 
-    h2 i {
-      color: #2563eb;
-      background: rgba(37,99,235,0.15);
-      padding: 8px;
-      border-radius: 14px;
-      font-size: 1.3rem;
-    }
+/* SKILLS */
+.skills span {
+  display: inline-block;
+  background: #0a66c2;
+  color: white;
+  padding: 8px 12px;
+  margin: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+  word-break: keep-all; /* ADDED: prevent skill tags from breaking */
+}
 
-    /* skills chips - mobile optimized */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+/* PROJECTS */
+.project {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  align-items: center;
+  width: 100%; /* ADDED: full width */
+}
 
-    .skills span {
-      background: #eef2ff;
-      color: #1e3a8a;
-      padding: 0.6rem 1rem;
-      border-radius: 40px;
-      font-weight: 500;
-      font-size: 0.85rem;
-      border: 1px solid #cbd5e1;
-      flex: 0 1 auto;
-    }
+.project img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  max-width: 100%; /* ADDED: ensure image doesn't overflow */
+  height: auto; /* ADDED: maintain aspect ratio */
+}
 
-    body.dark .skills span {
-      background: #26334d;
-      color: #b9d5ff;
-      border-color: #3b4e6b;
-    }
+.project img:hover {
+  transform: scale(1.05);
+}
 
-    /* project cards - completely redesigned for mobile */
-    .project-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+.project a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0a66c2;
+  font-weight: bold;
+  text-decoration: none;
+  word-break: break-word; /* ADDED: prevent link overflow */
+}
 
-    .project-item {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
+.project a:hover {
+  text-decoration: underline;
+}
 
-    .project-media {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
+/* CONTACT */
+.contact p {
+  margin: 8px 0;
+  word-break: break-word; /* ADDED: prevent text overflow */
+}
 
-    .project-media img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px -8px #00000030;
-      border: 2px solid white;
-    }
+.contact a {
+  color: #0a66c2;
+  text-decoration: none;
+  word-break: break-word; /* ADDED: prevent link overflow */
+}
 
-    body.dark .project-media img {
-      border-color: #2d3b52;
-    }
+.contact a:hover {
+  text-decoration: underline;
+}
 
-    .project-desc h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #222;
+  color: white;
+  margin-top: 40px;
+  width: 100%; /* ADDED: full width */
+}
 
-    .project-desc p {
-      color: #475569;
-      margin: 0.5rem 0 1rem;
-      font-size: 0.95rem;
-    }
+/* MOBILE - ONLY CHANGING BREAKPOINT VALUES, NOTHING ELSE */
+@media(max-width:700px) {
+  .project {
+    grid-template-columns: 1fr; /* This already existed, keeping it */
+    gap: 15px; /* ADDED: slightly smaller gap on mobile */
+  }
 
-    body.dark .project-desc p {
-      color: #b9c7da;
-    }
+  header h1 {
+    font-size: 28px; /* This already existed, keeping it */
+  }
+  
+  /* ADDED: additional mobile fixes that don't change design */
+  header {
+    padding: 40px 15px; /* Slightly reduced padding for mobile */
+  }
+  
+  header p {
+    font-size: 16px; /* Slightly smaller for mobile */
+  }
+  
+  nav {
+    gap: 15px; /* Reduced gap for mobile */
+    padding: 12px 10px; /* Slightly reduced padding */
+  }
+  
+  nav a {
+    font-size: 14px; /* Slightly smaller for mobile */
+  }
+  
+  h2 {
+    font-size: 24px; /* Consistent sizing */
+  }
+  
+  .card {
+    padding: 20px 15px; /* Slightly reduced padding for mobile */
+  }
+  
+  .skills span {
+    margin: 4px; /* Slightly smaller margins */
+    padding: 6px 10px; /* Slightly smaller padding */
+    font-size: 13px; /* Slightly smaller font */
+  }
+  
+  .toggle {
+    width: 40px; /* Slightly smaller on mobile */
+    height: 40px;
+    font-size: 18px;
+    top: 15px;
+    right: 15px;
+  }
+}
 
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #2563eb;
-      color: white;
-      padding: 0.6rem 1.4rem;
-      border-radius: 40px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      border: 1px solid #3b82f6;
-      width: fit-content;
-    }
-
-    .project-link i { font-size: 0.8rem; }
-
-    /* highlight tag */
-    .highlight-tag {
-      display: inline-block;
-      background: #dbeafe;
-      color: #004182;
-      border-radius: 40px;
-      padding: 0.4rem 1rem;
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.8rem;
-    }
-
-    body.dark .highlight-tag {
-      background: #1f3a68;
-      color: #b9dcff;
-    }
-
-    /* contact card - mobile optimized */
-    .contact-lines p {
-      margin: 1rem 0;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.95rem;
-      flex-wrap: wrap;
-      word-break: break-word;
-    }
-
-    .contact-lines i {
-      width: 32px;
-      height: 32px;
-      background: #e0ebff;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #0a2647;
-      flex-shrink: 0;
-    }
-
-    body.dark .contact-lines i {
-      background: #1e2f47;
-      color: #b6d0f0;
-    }
-
-    .contact-lines a {
-      color: #2563eb;
-      font-weight: 500;
-      word-break: break-all;
-      flex: 1;
-    }
-
-    /* footer */
-    footer {
-      background: #0f172a;
-      color: #94a3b8;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-      border-radius: 30px 30px 0 0;
-      font-size: 0.9rem;
-    }
-
-    body.dark footer {
-      background: #030712;
-    }
-
-    /* mobile specific breakpoints */
-    @media (max-width: 480px) {
-      header h1 { font-size: 1.8rem; }
-      header p { font-size: 0.9rem; }
-      
-      nav {
-        width: 95%;
-        gap: 0.3rem;
-      }
-      
-      nav a {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.6rem;
-      }
-      
-      h2 { font-size: 1.5rem; }
-      
-      .card { padding: 1.2rem; }
-      
-      .project-media img { height: 160px; }
-      
-      .project-desc h3 { font-size: 1.2rem; }
-      
-      .contact-lines p { 
-        font-size: 0.85rem;
-        gap: 8px;
-      }
-    }
-
-    /* small phone optimization */
-    @media (max-width: 360px) {
-      nav a { font-size: 0.7rem; padding: 0.2rem 0.4rem; }
-      
-      .skills span { 
-        font-size: 0.75rem; 
-        padding: 0.4rem 0.8rem;
-      }
-      
-      .project-link { 
-        padding: 0.5rem 1rem; 
-        font-size: 0.8rem;
-      }
-    }
-
-    /* ensure no overflow */
-    img, svg, video, canvas, audio, iframe, embed, object {
-      max-width: 100%;
-    }
-
-    /* fix for very small devices */
-    .container {
-      width: 100%;
-      overflow-x: hidden;
-    }
-  </style>
+/* ADDED: extra small device support (under 480px) */
+@media(max-width:480px) {
+  header h1 {
+    font-size: 24px; /* Even smaller for very small phones */
+  }
+  
+  header p {
+    font-size: 14px;
+  }
+  
+  nav {
+    gap: 10px;
+    padding: 10px 5px;
+  }
+  
+  nav a {
+    font-size: 13px;
+    padding: 3px 0;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  .skills span {
+    margin: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+  
+  .project {
+    gap: 10px;
+  }
+  
+  .contact p {
+    font-size: 14px;
+  }
+  
+  footer {
+    padding: 20px 15px;
+    font-size: 14px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <button class="toggle" onclick="toggleMode()" aria-label="Dark mode toggle">
-    <i class="fas fa-moon"></i>
-  </button>
 
-  <header>
-    <h1>Sem Gere</h1>
-    <p><i class="fas fa-code"></i> computer science · machine learning</p>
-    <a class="cv-btn" href="https://sem-gere.com/semere-cv.pdf" target="_blank"><i class="fas fa-file-pdf"></i> download CV</a>
-  </header>
+<button class="toggle" onclick="toggleMode()">🌙</button>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <h1>Sem Gere</h1>
+  <p>computer science Student | Machine Learning Enthusiast</p>
+  <a class="cv-btn" href="https://sem-gere.com/semere-cv.pdf" target="_blank">Download CV</a>
+</header>
 
-  <section id="about">
-    <h2><i class="fas fa-address-card"></i> about me</h2>
-    <div class="card">
-      <p style="font-size: 1rem;">
-        I'm Sem — a CS student with a drive for <strong>intelligent systems</strong> and clean architecture. 
-        I love transforming ideas into reliable code, whether it's machine learning, Flutter, or APIs.
-      </p>
-      <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 1rem;">
-        <span style="font-size: 0.9rem;"><i class="fas fa-check-circle" style="color:#2563eb;"></i> problem solver</span>
-        <span style="font-size: 0.9rem;"><i class="fas fa-check-circle" style="color:#2563eb;"></i> fast learner</span>
-        <span style="font-size: 0.9rem;"><i class="fas fa-check-circle" style="color:#2563eb;"></i> team player</span>
-      </div>
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      Hello! I am Sem Gere, a computer science student passionate
+      about building intelligent software systems. My interests include
+      machine learning, mobile application development, and backend web systems.
+      <br><br>
+      I enjoy solving complex problems through programming and creating
+      applications that deliver real-world value.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="card skills">
+    <span>Python</span>
+    <span>JavaScript</span>
+    <span>Dart</span>
+    <span>Flutter</span>
+    <span>Node.js</span>
+    <span>Machine Learning</span>
+    <span>REST APIs</span>
+    <span>Git</span>
+    <span>SQL</span>
+  </div>
+</section>
+
+<section id="projects">
+
+  <h2>Projects</h2>
+<h1>web design</h1>
+<p>A web base student project mangement system ...</p>
+  <div class="card project">
+    <img src="https://picsum.photos/300/200" alt="web design">
+   
+  </div>
+
+  <div class="card project">
+    <img src="https://picsum.photos/301/200" alt="Flutter Mobile App">
+    <div>
+      <h3>Flutter Mobile Application</h3>
+      <p>A mobile app built with Flutter focusing on modern UI design and smooth performance.</p>
+      <a href="https://github.com/sem21gere-commits/flutter-mobile-app" target="_blank">View on GitHub</a>
     </div>
-  </section>
+  </div>
 
-  <section id="skills">
-    <h2><i class="fas fa-code-branch"></i> skills</h2>
-    <div class="card skills">
-      <span>Python</span><span>JavaScript</span><span>Dart</span><span>Flutter</span>
-      <span>Node.js</span><span>Express</span><span>ML</span><span>scikit-learn</span>
-      <span>REST APIs</span><span>Git</span><span>SQL</span><span>Firebase</span>
-      <span>HTML/CSS</span><span>Figma</span>
+  <div class="card project">
+    <img src="https://picsum.photos/302/200" alt="Node.js Backend API">
+    <div>
+      <h3>Node.js Backend API</h3>
+      <p>Secure REST API built with Node.js and Express for authentication and database management.</p>
+      <a href="https://github.com/sem21gere-commits/nodejs-backend-api" target="_blank">View on GitHub</a>
     </div>
-  </section>
+  </div>
 
-  <section id="projects">
-    <h2><i class="fas fa-project-diagram"></i> projects</h2>
+</section>
 
-    <!-- Project Management System -->
-    <div class="card project-item">
-      <div class="highlight-tag"><i class="fas fa-globe"></i> web design · student project management</div>
-      <div class="project-media">
-        <img src="https://picsum.photos/id/104/400/250" alt="project management dashboard">
-      </div>
-      <div class="project-desc">
-        <h3>Student Project Hub</h3>
-        <p>Full‑stack platform for supervisors and students: track progress, submit deliverables, real‑time feedback. React, Node.js, MongoDB.</p>
-        <a href="https://github.com/sem21gere-commits" target="_blank" class="project-link"><i class="fab fa-github"></i> view code</a>
-      </div>
-    </div>
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card contact">
+    <p>Email: <a href="mailto:sem21gere@gmail.com">sem21gere@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/sem21gere-commits" target="_blank">View on GitHub</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sem-gere-0294933b3" target="_blank">linkedin.com/in/semere</a></p>
+  </div>
+</section>
 
-    <!-- Flutter Mobile App -->
-    <div class="card project-item">
-      <div class="project-media">
-        <img src="https://picsum.photos/id/20/400/250" alt="Flutter mobile app">
-      </div>
-      <div class="project-desc">
-        <h3>UrbanGo · Flutter</h3>
-        <p>City navigation with real‑time transit data, Material You design, offline support. BLoC + Firebase.</p>
-        <a href="https://github.com/sem21gere-commits/flutter-mobile-app" target="_blank" class="project-link"><i class="fab fa-github"></i> repository</a>
-      </div>
-    </div>
+<footer>
+  <p>© 2026 Sem Gere | Portfolio</p>
+</footer>
 
-    <!-- Node.js API -->
-    <div class="card project-item">
-      <div class="project-media">
-        <img src="https://picsum.photos/id/16/400/250" alt="node.js api">
-      </div>
-      <div class="project-desc">
-        <h3>taskFlow API · Node.js</h3>
-        <p>JWT authentication, rate limiting, MongoDB aggregation. Used in production prototypes.</p>
-        <a href="https://github.com/sem21gere-commits/nodejs-backend-api" target="_blank" class="project-link"><i class="fab fa-github"></i> api docs</a>
-      </div>
-    </div>
-  </section>
+<script>
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+</script>
 
-  <section id="contact">
-    <h2><i class="fas fa-envelope-open-text"></i> connect</h2>
-    <div class="card contact-lines">
-      <p><i class="fas fa-envelope"></i> <a href="mailto:sem21gere@gmail.com">sem21gere@gmail.com</a></p>
-      <p><i class="fab fa-github"></i> <a href="https://github.com/sem21gere-commits" target="_blank">github/sem21gere-commits</a></p>
-      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/sem-gere-0294933b3" target="_blank">linkedin.com/in/sem-gere</a></p>
-      <p style="margin-top: 1rem;"><i class="fas fa-map-pin"></i> EU · open to freelance</p>
-    </div>
-  </section>
-
-  <footer>
-    <p><i class="far fa-copyright"></i> 2026 Sem Gere · built with <i class="fas fa-heart" style="color:#dc2626;"></i> for mobile</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem;">dark mode · fully responsive</p>
-  </footer>
-
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle("dark");
-      const toggleBtn = document.querySelector('.toggle i');
-      if (document.body.classList.contains('dark')) {
-        toggleBtn.classList.remove('fa-moon');
-        toggleBtn.classList.add('fa-sun');
-      } else {
-        toggleBtn.classList.remove('fa-sun');
-        toggleBtn.classList.add('fa-moon');
-      }
-    }
-
-    // Set initial icon
-    window.addEventListener('DOMContentLoaded', () => {
-      const isDark = document.body.classList.contains('dark');
-      const icon = document.querySelector('.toggle i');
-      if (isDark) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-      }
-    });
-  </script>
 </body>
 </html>
