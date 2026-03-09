@@ -31,6 +31,6 @@ Here are some of the projects featured on my portfolio:
 ## Contact
 - **Email:** sem21gere@gmail.com  
 - **GitHub:** [github.com/Sem-](https://github.com/Sem-)  
-- **LinkedIn:** [linkedin.com/in/Sem](https://linkedin.com/in/Sem)
+- **LinkedIn:** [linkedin.com/in/sem-gere](https://www.linkedin.com/in/sem-gere/)
 
 ---
