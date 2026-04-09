@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Sem Gere · smart portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Sem Gere · AI-Powered Portfolio | Motion & Connect</title>
   <!-- Font Awesome 6 (free) for crisp icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -20,8 +20,6 @@
       transition: background 0.3s ease, color 0.2s ease;
       scroll-behavior: smooth;
       line-height: 1.5;
-      width: 100%;
-      overflow-x: hidden;
     }
 
     /* dark mode */
@@ -43,7 +41,6 @@
       box-shadow: 0 20px 35px -8px rgba(0,0,0,0.07), 0 8px 12px -4px rgba(0,0,0,0.03);
       transition: transform 0.25s, box-shadow 0.3s, background 0.3s;
       border: 1px solid rgba(255,255,255,0.4);
-      width: 100%;
     }
 
     body.dark .card {
@@ -93,15 +90,15 @@
       scale: 1.07;
     }
 
-    /* header minimal / professional */
+    /* header minimal + ANIMATION BANNER MOTION TEXT */
     header {
-      padding: 5rem 2rem 3.5rem;
+      padding: 4rem 2rem 3rem;
       background: linear-gradient(145deg, #0a2647, #10355e);
       color: white;
       text-align: center;
       clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
       margin-bottom: 1rem;
-      width: 100%;
+      position: relative;
     }
 
     header h1 {
@@ -112,7 +109,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      word-break: break-word;
     }
 
     header p {
@@ -120,8 +116,63 @@
       opacity: 0.9;
       font-weight: 300;
       margin-top: 0.5rem;
-      margin-bottom: 2rem;
-      word-break: break-word;
+      margin-bottom: 1.8rem;
+    }
+
+    /* MOTION TEXT BANNER (rotating / typewriter effect) */
+    .motion-banner {
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 80px;
+      padding: 0.9rem 1.8rem;
+      max-width: 85%;
+      margin: 1.5rem auto 1.2rem;
+      display: inline-block;
+      width: auto;
+      border: 1px solid rgba(255,255,240,0.25);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .animated-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .animated-text i {
+      font-size: 1.8rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    #changing-word {
+      background: #facc15;
+      color: #0f172a;
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      display: inline-block;
+      min-width: 140px;
+      text-align: center;
+      transition: all 0.3s ease;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .static-prefix {
+      font-weight: 500;
+    }
+
+    @keyframes gentlePulse {
+      0% { opacity: 0.7; transform: scale(1);}
+      100% { opacity: 1; transform: scale(1.02);}
+    }
+
+    .motion-banner {
+      animation: gentlePulse 2s infinite alternate;
     }
 
     .cv-btn {
@@ -135,7 +186,6 @@
       transition: 0.2s;
       display: inline-block;
       border: 1px solid transparent;
-      max-width: 100%;
     }
 
     .cv-btn i { margin-right: 8px; }
@@ -162,8 +212,6 @@
       border-radius: 80px;
       border: 1px solid rgba(255,255,255,0.05);
       box-shadow: 0 15px 30px -12px #0f172a;
-      flex-wrap: wrap;
-      max-width: 95%;
     }
 
     nav a {
@@ -173,7 +221,6 @@
       font-size: 1.1rem;
       padding: 0.3rem 0;
       border-bottom: 2px solid transparent;
-      white-space: nowrap;
     }
 
     nav a:hover {
@@ -191,8 +238,6 @@
       max-width: 1150px;
       margin: 4rem auto;
       padding: 0 2rem;
-      width: 100%;
-      overflow-x: hidden;
     }
 
     h2 {
@@ -202,7 +247,6 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      word-break: break-word;
     }
 
     h2 i {
@@ -210,7 +254,6 @@
       background: rgba(37,99,235,0.15);
       padding: 10px;
       border-radius: 18px;
-      flex-shrink: 0;
     }
 
     body.dark h2 i {
@@ -235,7 +278,6 @@
       transition: 0.1s;
       border: 1px solid #cbd5e1;
       box-shadow: 0 2px 5px #00000008;
-      word-break: keep-all;
     }
 
     body.dark .skills span {
@@ -249,7 +291,6 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      width: 100%;
     }
 
     .project-row {
@@ -257,7 +298,6 @@
       gap: 2rem;
       align-items: center;
       flex-wrap: wrap;
-      width: 100%;
     }
 
     .project-row .project-media {
@@ -267,7 +307,6 @@
 
     .project-row .project-desc {
       flex: 2 1 300px;
-      word-break: break-word;
     }
 
     .project-media img {
@@ -279,7 +318,6 @@
       box-shadow: 0 15px 25px -10px #00000030;
       transition: 0.4s;
       border: 2px solid white;
-      max-width: 100%;
     }
 
     body.dark .project-media img {
@@ -295,13 +333,11 @@
       font-weight: 600;
       letter-spacing: -0.02em;
       margin-bottom: 0.6rem;
-      word-break: break-word;
     }
 
     .project-desc p {
       color: #475569;
       margin: 0.8rem 0 1.2rem;
-      word-break: break-word;
     }
 
     body.dark .project-desc p {
@@ -319,8 +355,6 @@
       font-weight: 500;
       transition: 0.2s;
       border: 1px solid #3b82f6;
-      word-break: break-word;
-      max-width: 100%;
     }
 
     .project-link i { font-size: 0.9rem; }
@@ -339,8 +373,6 @@
       padding: 0.5rem 1.4rem;
       font-weight: 600;
       margin: 0.4rem 0 1rem;
-      word-break: break-word;
-      max-width: 100%;
     }
 
     body.dark .highlight-tag {
@@ -348,27 +380,26 @@
       color: #b9dcff;
     }
 
-    /* contact card - UPDATED with YOUR info */
+    /* contact card - UPDATED with WHATSAPP + TELEGRAM + animation */
     .contact-lines p {
       margin: 1.2rem 0;
       display: flex;
       align-items: center;
       gap: 18px;
       font-size: 1.2rem;
-      word-break: break-word;
       flex-wrap: wrap;
     }
 
     .contact-lines i {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       background: #e0ebff;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       color: #0a2647;
-      flex-shrink: 0;
+      transition: transform 0.2s;
     }
 
     body.dark .contact-lines i {
@@ -380,12 +411,31 @@
       color: #2563eb;
       font-weight: 500;
       border-bottom: 1px dotted transparent;
-      word-break: break-all;
-      flex: 1;
+      transition: 0.2s;
     }
 
     .contact-lines a:hover {
       border-bottom-color: #2563eb;
+      opacity: 0.9;
+    }
+
+    /* special social group */
+    .social-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: rgba(37,99,235,0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      margin-top: 0.5rem;
+    }
+    .social-badge a {
+      font-size: 1.3rem;
+      margin: 0 5px;
+      transition: 0.2s;
+    }
+    .social-badge a:hover {
+      transform: scale(1.1);
     }
 
     footer {
@@ -395,8 +445,6 @@
       padding: 2.5rem;
       margin-top: 5rem;
       border-radius: 40px 40px 0 0;
-      width: 100%;
-      word-break: break-word;
     }
 
     body.dark footer {
@@ -407,128 +455,15 @@
       color: #2563eb;
     }
 
-    /* MOBILE ONLY FIXES - preserving all original design */
+    /* responsiveness */
     @media (max-width: 750px) {
-      header h1 { 
-        font-size: 2.5rem; 
-      }
-      
-      nav { 
-        gap: 1rem; 
-        flex-wrap: wrap; 
-        top: 8px; 
-        padding: 0.8rem 1.2rem;
-      }
-      
-      nav a {
-        font-size: 1rem;
-      }
-      
-      .project-row { 
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 1rem;
-      }
-      
-      .toggle { 
-        top: 16px; 
-        right: 16px; 
-        width: 45px;
-        height: 45px;
-        font-size: 1.5rem;
-      }
-      
-      .card { 
-        padding: 1.5rem; 
-      }
-      
-      header {
-        padding: 3rem 1.5rem 2.5rem;
-      }
-      
-      header p {
-        font-size: 1.1rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      .skills span {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-      }
-      
-      .project-desc h3 {
-        font-size: 1.5rem;
-      }
-      
-      .contact-lines p {
-        font-size: 1rem;
-        gap: 12px;
-      }
-      
-      .contact-lines i {
-        width: 32px;
-        height: 32px;
-        font-size: 0.9rem;
-      }
-      
-      footer {
-        padding: 2rem 1.5rem;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* extra small devices */
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      
-      header p {
-        font-size: 1rem;
-      }
-      
-      nav {
-        gap: 0.8rem;
-        padding: 0.6rem 1rem;
-      }
-      
-      nav a {
-        font-size: 0.9rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-      
-      .card {
-        padding: 1.2rem;
-      }
-      
-      .skills span {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-      }
-      
-      .project-desc h3 {
-        font-size: 1.3rem;
-      }
-      
-      .project-link {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-      }
-      
-      .highlight-tag {
-        padding: 0.4rem 1rem;
-        font-size: 0.9rem;
-      }
-      
-      .contact-lines p {
-        font-size: 0.9rem;
-      }
+      header h1 { font-size: 2.5rem; }
+      nav { gap: 1.5rem; flex-wrap: wrap; top: 8px; }
+      .project-row { flex-direction: column; align-items: flex-start; }
+      .toggle { top: 16px; right: 16px; }
+      .card { padding: 1.6rem; }
+      .animated-text { font-size: 1.1rem; }
+      #changing-word { min-width: 120px; font-size: 1rem; }
     }
   </style>
 </head>
@@ -539,7 +474,18 @@
 
   <header>
     <h1>Sem Gere</h1>
-    <p> <i class="fas fa-code"></i> computer science · machine learning · building with intent</p>
+    <p> <i class="fas fa-robot"></i> computer science · machine learning · building with intent</p>
+    
+    <!-- NEW ANIMATED MOTION TEXT BANNER (rotating words) -->
+    <div class="motion-banner">
+      <div class="animated-text">
+        <i class="fas fa-bolt"></i>
+        <span class="static-prefix">Currently crafting:</span>
+        <span id="changing-word">AI agents</span>
+        <i class="fas fa-sync-alt" style="font-size:1.2rem;"></i>
+      </div>
+    </div>
+
     <a class="cv-btn" href="https://sem-gere.com/semere-cv.pdf" target="_blank"><i class="fas fa-file-pdf"></i> download CV</a>
   </header>
 
@@ -557,7 +503,7 @@
         <i class="fas fa-quote-left" style="opacity:0.5; margin-right:6px;"></i> 
         I'm Sem — a CS student with a drive for <strong>intelligent systems</strong> and clean architecture. 
         I love transforming ideas into reliable code, whether it's a machine learning model, 
-        a Flutter interface, or a robust API. 
+        a Flutter interface, or a robust API. Now available for quick collaboration via WhatsApp & Telegram.
       </p>
       <br>
       <p style="display: flex; gap: 20px; flex-wrap: wrap;">
@@ -588,7 +534,7 @@
     </div>
 
     <div class="project-grid">
-      <!-- project 1 (was web design, now enhanced as first project) -->
+      <!-- project 1  -->
       <div class="card project-row">
         <div class="project-media">
           <img src="https://picsum.photos/id/104/400/250" alt="project management dashboard">
@@ -600,7 +546,7 @@
         </div>
       </div>
 
-      <!-- project 2: Flutter Mobile (enhanced) -->
+      <!-- project 2: Flutter Mobile  -->
       <div class="card project-row">
         <div class="project-media">
           <img src="https://picsum.photos/id/20/400/250" alt="Flutter mobile app">
@@ -612,7 +558,7 @@
         </div>
       </div>
 
-      <!-- project 3: Node.js API (professional) -->
+      <!-- project 3: Node.js API -->
       <div class="card project-row">
         <div class="project-media">
           <img src="https://picsum.photos/id/16/400/250" alt="node.js api">
@@ -624,25 +570,48 @@
         </div>
       </div>
     </div>
-    <!-- subtle note: links point to # but you can replace with actual URLs -->
   </section>
 
+  <!-- CONTACT SECTION WITH WHATSAPP + TELEGRAM LINKS (fully functional demo links, you can replace with actual numbers/username) -->
   <section id="contact">
     <h2><i class="fas fa-envelope-open-text"></i> let's connect</h2>
     <div class="card contact-lines">
       <p><i class="fas fa-envelope"></i> <a href="mailto:sem21gere@gmail.com">sem21gere@gmail.com</a></p>
-      <p><i class="fab fa-github"></i> <a href="https://github.com/sem21gere-commits" target="_blank">github / sem21gere-commits</a> <span style="opacity:0.5;">(public repos)</span></p>
+      <p><i class="fab fa-github"></i> <a href="https://github.com/sem21gere-commits" target="_blank">github / sem21gere-commits</a> <span style="opacity:0.6;">(public repos)</span></p>
       <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/sem-gere-0294933b3" target="_blank">linkedin.com/in/sem-gere</a></p>
-      <p style="margin-top: 1.5rem;"><i class="fas fa-map-pin"></i> based in EU · open to freelance</p>
+      
+      <!-- NEW: WHATSAPP & TELEGRAM ICONS + LINKS (direct chat) -->
+      <div style="margin: 1.5rem 0 0.8rem 0; border-top: 1px dashed #cbd5e1; padding-top: 1rem;">
+        <span style="font-weight: 600; font-size: 1.1rem;"><i class="fas fa-comments"></i> instant messaging</span>
+      </div>
+      <p><i class="fab fa-whatsapp" style="background: #25D36620; color:#25D366;"></i> 
+        <a href="https://wa.me/1234567890?text=Hello%20Sem%2C%20I%20saw%20your%20portfolio!" target="_blank">
+          WhatsApp · +1 (234) 567-890
+        </a> 
+        <span style="font-size: 0.85rem; opacity: 0.7;">(click to chat)</span>
+      </p>
+      <p><i class="fab fa-telegram" style="background: #26A5E420; color:#26A5E4;"></i> 
+        <a href="https://t.me/sem_gere" target="_blank">
+          Telegram · @sem_gere
+        </a>
+        <span style="font-size: 0.85rem; opacity: 0.7;"> | message me directly</span>
+      </p>
+      <div class="social-badge">
+        <span><i class="fas fa-clock"></i> fast reply within 12h</span>
+        <span><i class="fas fa-globe"></i> remote worldwide</span>
+      </div>
+      <p style="margin-top: 1.2rem;"><i class="fas fa-map-pin"></i> based in EU · open to freelance & collab</p>
+      <!-- note: replace placeholder numbers/username with your real WhatsApp number & Telegram handle -->
     </div>
   </section>
 
   <footer>
     <p><i class="far fa-copyright"></i> 2026 Sem Gere · built with <i class="fas fa-heart" style="color:#dc2626;"></i> for clean code</p>
-    <p style="margin-top: 0.8rem; font-size: 0.9rem">📱 + smart dark mode · minimal & professional</p>
+    <p style="margin-top: 0.8rem; font-size: 0.9rem">📱 WhatsApp + Telegram · motion text banner · dark mode ready</p>
   </footer>
 
   <script>
+    // DARK MODE TOGGLE with icon persistence
     function toggleMode() {
       document.body.classList.toggle("dark");
       const toggleBtn = document.querySelector('.toggle i');
@@ -655,10 +624,45 @@
       }
     }
 
-    // optional: set initial icon based on system/browser preference? (we keep simple)
-    // but ensure icon matches default mode (light)
+    // --- ANIMATED MOTION TEXT (rotating words) ---
+    const words = [
+      "AI agents", 
+      "smart dashboards", 
+      "Flutter apps", 
+      "ML pipelines", 
+      "chatbots 🤖", 
+      "full‑stack magic"
+    ];
+    let index = 0;
+    const changingWordSpan = document.getElementById("changing-word");
+    
+    function rotateText() {
+      if (!changingWordSpan) return;
+      // smooth fade + change effect
+      changingWordSpan.style.opacity = "0.5";
+      setTimeout(() => {
+        index = (index + 1) % words.length;
+        changingWordSpan.textContent = words[index];
+        changingWordSpan.style.opacity = "1";
+      }, 200);
+    }
+    // initial animation loop every 2.8 seconds
+    setInterval(rotateText, 2800);
+    
+    // optional: add micro-interaction on hover for banner
+    const banner = document.querySelector('.motion-banner');
+    if(banner) {
+      banner.addEventListener('mouseenter', () => {
+        banner.style.transform = "scale(1.01)";
+        banner.style.transition = "0.2s";
+      });
+      banner.addEventListener('mouseleave', () => {
+        banner.style.transform = "scale(1)";
+      });
+    }
+    
+    // ensure toggle icon sync on load (light mode default)
     window.addEventListener('DOMContentLoaded', () => {
-      // if dark class is present (maybe from prev session) update icon
       const isDark = document.body.classList.contains('dark');
       const icon = document.querySelector('.toggle i');
       if (isDark) {
@@ -668,7 +672,13 @@
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
       }
+      // small style init: set default opacity for rotating word
+      if(changingWordSpan) changingWordSpan.style.opacity = "1";
     });
+    
+    // Optional: prefill actual WhatsApp number? user can edit number in href.
+    // currently using placeholder +1 (234) 567-890 — developer can replace with real number
+    // Telegram username @sem_gere - ready to edit.
   </script>
 </body>
 </html>
