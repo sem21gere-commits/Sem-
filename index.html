@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a2647">
-  <title>Sem Gere · Smart Portfolio | AI Engineer</title>
+  <title>Sem Gere · AI Engineer · Portfolio</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -29,12 +29,17 @@
     }
 
     .container {
-      max-width: 1200px;
+      width: 100%;
+      padding: 0 2rem;
       margin: 0 auto;
-      padding: 0 1.5rem;
     }
 
-    /* Dark mode toggle */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+
     .toggle {
       position: fixed;
       top: 20px;
@@ -61,37 +66,39 @@
       color: #facc15;
     }
 
-    /* Header */
     header {
       background: linear-gradient(135deg, #0a2647 0%, #1e3a5f 100%);
       color: white;
-      padding: 4rem 0 5rem;
+      padding: 5rem 0 6rem;
       text-align: center;
+      width: 100%;
       position: relative;
       overflow: hidden;
     }
 
     header h1 {
-      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-size: clamp(2.4rem, 10vw, 4.5rem);
       font-weight: 700;
       margin-bottom: 0.5rem;
       background: linear-gradient(to right, #ffffff, #93c5fd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -0.02em;
     }
 
     header .tagline {
-      font-size: clamp(1rem, 4vw, 1.3rem);
+      font-size: clamp(1.2rem, 4vw, 1.6rem);
       opacity: 0.95;
       margin-bottom: 1rem;
+      font-weight: 400;
     }
 
     .motion-banner {
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(12px);
       border-radius: 60px;
-      padding: 0.8rem 1.5rem;
+      padding: 0.8rem 2rem;
       display: inline-block;
       margin: 1.5rem auto;
       border: 1px solid rgba(255,255,255,0.2);
@@ -107,79 +114,89 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 14px;
       flex-wrap: wrap;
-      font-size: clamp(0.9rem, 4vw, 1.2rem);
+      font-size: clamp(1rem, 4vw, 1.3rem);
     }
 
     #changing-word {
       background: #facc15;
       color: #0f172a;
-      padding: 0.3rem 1rem;
+      padding: 0.3rem 1.4rem;
       border-radius: 40px;
       font-weight: 700;
       display: inline-block;
-      min-width: 130px;
+      min-width: 140px;
+      transition: opacity 0.2s;
     }
 
     .cv-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: white;
       color: #0a2647;
-      padding: 0.8rem 1.8rem;
+      padding: 0.9rem 2.2rem;
       border-radius: 50px;
       font-weight: 600;
-      margin-top: 1rem;
+      margin-top: 1.2rem;
       transition: all 0.3s;
       border: none;
       cursor: pointer;
       text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
     }
 
-    /* ========== FIXED NAVIGATION - ALL IN ONE ROW ========== */
+    .cv-btn:hover {
+      transform: scale(1.03);
+      background: #f1f5f9;
+    }
+
     nav {
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(10px);
-      padding: 0.8rem 1.5rem;
+      padding: 0.8rem 2rem;
       position: sticky;
-      top: 15px;
+      top: 20px;
       z-index: 99;
-      border-radius: 60px;
-      margin: -2rem auto 0;
-      max-width: 90%;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 80px;
+      margin: -2.5rem auto 0;
+      width: 92%;
+      max-width: 1300px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+      transition: background 0.3s;
     }
 
     body.dark nav {
       background: rgba(30,41,59,0.95);
     }
 
-    /* FLEXBOX - FORCES ALL ITEMS IN ONE ROW */
     nav ul {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2rem;
+      gap: 1.8rem;
       list-style: none;
-      flex-wrap: nowrap;  /* PREVENTS WRAPPING */
+      flex-wrap: nowrap;
       margin: 0;
       padding: 0;
+      width: 100%;
     }
 
     nav a {
       color: #1e293b;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
-      padding: 0.6rem 1.2rem;
+      font-size: 1.05rem;
+      padding: 0.7rem 1.6rem;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       transition: 0.2s;
       border-radius: 40px;
-      white-space: nowrap;  /* PREVENTS TEXT FROM WRAPPING */
+      white-space: nowrap;
+      letter-spacing: 0.3px;
     }
 
     body.dark nav a {
@@ -189,85 +206,92 @@
     nav a:hover, nav a:active {
       background: #2563eb;
       color: white;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
     }
 
-    /* Mobile: make gap smaller but STAY IN ONE ROW */
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       nav {
-        padding: 0.6rem 1rem;
-        max-width: 95%;
+        padding: 0.5rem 0.8rem;
+        width: 96%;
+        border-radius: 60px;
       }
       nav ul {
-        gap: 0.5rem;
+        gap: 0.4rem;
       }
       nav a {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
         gap: 4px;
       }
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 480px) {
       nav a {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+        gap: 2px;
       }
       nav ul {
-        gap: 0.3rem;
+        gap: 0.2rem;
       }
     }
 
-    /* Cards */
     .card {
       background: white;
-      border-radius: 24px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 28px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
       transition: transform 0.2s, box-shadow 0.2s;
+      width: 100%;
     }
 
     body.dark .card {
       background: #1e293b;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 600px) {
       .card {
-        padding: 2rem;
+        padding: 1.5rem;
       }
     }
 
     section {
       padding: 3rem 0;
+      width: 100%;
     }
 
     h2 {
-      font-size: clamp(1.5rem, 5vw, 2.2rem);
-      margin-bottom: 1.5rem;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      margin-bottom: 1.8rem;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+      font-weight: 600;
     }
 
     h2 i {
       background: #2563eb20;
-      padding: 10px;
-      border-radius: 16px;
+      padding: 12px;
+      border-radius: 18px;
+      font-size: 1.6rem;
     }
 
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
 
     .skill-chip {
       background: #eef2ff;
       color: #1e3a8a;
-      padding: 0.5rem 1.2rem;
+      padding: 0.6rem 1.5rem;
       border-radius: 40px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 500;
+      transition: 0.2s;
     }
 
     body.dark .skill-chip {
@@ -277,39 +301,43 @@
 
     .project-grid {
       display: grid;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      width: 100%;
     }
 
     .project-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
-      transition: transform 0.2s;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
 
     body.dark .project-card {
       background: #1e293b;
     }
 
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
     .project-image {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
+      background: #1e293b;
     }
 
     .project-content {
-      padding: 1.2rem;
+      padding: 1.5rem;
     }
 
     .project-title {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
     }
 
     .project-link {
@@ -318,31 +346,35 @@
       gap: 8px;
       background: #2563eb;
       color: white;
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 1.4rem;
       border-radius: 40px;
       margin-top: 1rem;
       font-size: 0.9rem;
       text-decoration: none;
+      transition: 0.2s;
     }
 
-    /* Social buttons */
+    .project-link:hover {
+      background: #1d4ed8;
+    }
+
     .social-links {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
     }
 
     .social-btn {
       flex: 1;
-      min-width: 100px;
+      min-width: 120px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       background: #f1f5f9;
-      padding: 0.7rem;
-      border-radius: 40px;
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px;
       text-decoration: none;
       color: #1e293b;
       font-weight: 500;
@@ -359,22 +391,27 @@
     .social-btn.github { background: #333; color: white; }
     .social-btn.linkedin { background: #0077b5; color: white; }
 
-    /* Contact form */
+    .social-btn:hover {
+      transform: scale(1.02);
+      filter: brightness(1.05);
+    }
+
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.2rem;
       margin-top: 1.5rem;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 0.8rem;
+      padding: 0.9rem 1.2rem;
       border: 1px solid #cbd5e1;
-      border-radius: 12px;
+      border-radius: 16px;
       font-size: 1rem;
       background: white;
+      transition: 0.2s;
     }
 
     body.dark .form-group input,
@@ -387,30 +424,36 @@
     .submit-btn {
       background: #2563eb;
       color: white;
-      padding: 0.8rem;
+      padding: 0.9rem;
       border: none;
-      border-radius: 12px;
-      font-size: 1rem;
+      border-radius: 16px;
+      font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #1d4ed8;
     }
 
     footer {
       background: #0f172a;
       color: #94a3b8;
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem 1rem;
       margin-top: 2rem;
+      width: 100%;
     }
 
     .scroll-top {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 24px;
+      right: 24px;
       background: #2563eb;
       color: white;
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -419,10 +462,39 @@
       z-index: 99;
       opacity: 0;
       transition: 0.3s;
+      box-shadow: 0 6px 16px rgba(37,99,235,0.3);
+      border: none;
     }
 
     .scroll-top.visible {
       opacity: 1;
+    }
+
+    .scroll-top:hover {
+      background: #1d4ed8;
+      transform: scale(1.06);
+    }
+
+    .contact-info {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+    }
+
+    .highlight-badge {
+      background: #2563eb10;
+      border-left: 4px solid #2563eb;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      margin-top: 1rem;
     }
   </style>
 </head>
@@ -434,13 +506,13 @@
   <header>
     <div class="container">
       <h1>Sem Gere</h1>
-      <p class="tagline"><i class="fas fa-robot"></i> AI Engineer · Full-Stack Developer</p>
+      <p class="tagline"><i class="fas fa-robot"></i> AI Engineer · Full-Stack Developer · Problem Solver</p>
       
       <div class="motion-banner">
         <div class="animated-text">
-          <i class="fas fa-fire"></i>
-          <span>Currently building:</span>
-          <span id="changing-word">AI solutions</span>
+          <i class="fas fa-fire" style="color: #facc15;"></i>
+          <span>Right now I'm deep into:</span>
+          <span id="changing-word">AI Agents</span>
         </div>
       </div>
       
@@ -450,7 +522,6 @@
     </div>
   </header>
 
-  <!-- ========== FIXED NAVIGATION - ALL 4 ITEMS IN ONE ROW ========== -->
   <nav>
     <ul>
       <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
@@ -461,17 +532,32 @@
   </nav>
 
   <main class="container">
-    <!-- About Section -->
+    <!-- About Section - human tone -->
     <section id="home">
       <div class="card">
-        <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
-        <p>I'm Sem — a Computer Science student passionate about AI, machine learning, and building impactful digital solutions. I transform complex problems into elegant, scalable applications.</p>
+        <h2><i class="fas fa-user-astronaut"></i> A bit about me</h2>
+        <p style="font-size: 1.1rem; max-width: 900px;">
+          I'm Sem — a Computer Science student who genuinely loves building things that matter. 
+          I got into AI because I wanted to make computers not just smart, but actually useful. 
+          Whether it's training a model to understand messy data or crafting a full-stack app from scratch, 
+          I care about the whole picture. I'm the kind of person who stays up late chasing a bug, 
+          then celebrates with a cup of coffee when it finally works.
+        </p>
+        <div style="margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 1.5rem;">
+          <span><i class="fas fa-check-circle" style="color: #2563eb;"></i> 3+ years of hands-on AI/ML</span>
+          <span><i class="fas fa-check-circle" style="color: #2563eb;"></i> Full-stack & mobile dev</span>
+          <span><i class="fas fa-check-circle" style="color: #2563eb;"></i> Open-source contributor</span>
+        </div>
+        <div class="highlight-badge">
+          <i class="fas fa-graduation-cap" style="color: #2563eb; margin-right: 10px;"></i>
+          <strong>Final year project:</strong> I built a <strong>Web Based Student Project Management System</strong> — a platform that helps students and supervisors track project progress, submit reports, and manage feedback in one place. It's one of my proudest achievements.
+        </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section - including the final project skill -->
     <section id="skills">
-      <h2><i class="fas fa-cogs"></i> Tech Stack</h2>
+      <h2><i class="fas fa-cogs"></i> What I work with</h2>
       <div class="card">
         <div class="skills-grid">
           <span class="skill-chip">Python</span>
@@ -480,39 +566,56 @@
           <span class="skill-chip">Node.js</span>
           <span class="skill-chip">Flutter</span>
           <span class="skill-chip">TensorFlow</span>
+          <span class="skill-chip">PyTorch</span>
           <span class="skill-chip">SQL/NoSQL</span>
           <span class="skill-chip">Docker</span>
           <span class="skill-chip">Git/GitHub</span>
-          <span class="skill-chip">REST APIs</span>
+          <span class="skill-chip">REST/GraphQL</span>
+          <span class="skill-chip">AWS/Azure</span>
+          <span class="skill-chip" style="background: #2563eb; color: white; font-weight: 600;">Web Based Student Project Management System</span>
         </div>
+        <p style="margin-top: 1.2rem; font-style: italic; opacity: 0.8;">
+          <i class="fas fa-star" style="color: #facc15;"></i> 
+          That last one is my university final project — a full-featured system built with React, Node.js, and MongoDB.
+        </p>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - includes the final project -->
     <section id="projects">
-      <h2><i class="fas fa-rocket"></i> Featured Projects</h2>
+      <h2><i class="fas fa-rocket"></i> Projects I've poured my heart into</h2>
       <div class="project-grid">
+        <!-- Final project card -->
         <div class="project-card">
-          <img src="https://picsum.photos/id/0/400/250" alt="AI Project" class="project-image">
+          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=300&fit=crop&crop=center" alt="Student Project Management System" class="project-image" loading="lazy">
+          <div class="project-content">
+            <h3 class="project-title">Student Project Management System</h3>
+            <p>My university final project — a web platform where students can submit project proposals, track milestones, and get feedback from supervisors. Built with React, Node.js, and MongoDB.</p>
+            <a href="#" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+          </div>
+        </div>
+        <!-- Other projects -->
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&h=300&fit=crop&crop=center" alt="AI Content Generator" class="project-image" loading="lazy">
           <div class="project-content">
             <h3 class="project-title">AI Content Generator</h3>
-            <p>GPT-powered content creation tool with custom fine-tuning.</p>
+            <p>GPT-powered tool that helps writers and marketers create high-quality content with custom fine-tuning and real-time collaboration.</p>
             <a href="#" class="project-link"><i class="fab fa-github"></i> View Project</a>
           </div>
         </div>
         <div class="project-card">
-          <img src="https://picsum.photos/id/20/400/250" alt="Mobile App" class="project-image">
-          <div class="project-content">
-            <h3 class="project-title">UrbanGo Flutter App</h3>
-            <p>Real-time transit navigation with offline support.</p>
-            <a href="#" class="project-link"><i class="fab fa-github"></i> View Project</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="https://picsum.photos/id/26/400/250" alt="Dashboard" class="project-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop&crop=center" alt="Analytics Dashboard" class="project-image" loading="lazy">
           <div class="project-content">
             <h3 class="project-title">Analytics Dashboard</h3>
-            <p>Real-time business intelligence dashboard.</p>
+            <p>Real-time business intelligence dashboard with anomaly detection, forecasting, and interactive visualizations.</p>
+            <a href="#" class="project-link"><i class="fab fa-github"></i> View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=300&fit=crop&crop=center" alt="UrbanGo Flutter" class="project-image" loading="lazy">
+          <div class="project-content">
+            <h3 class="project-title">UrbanGo Flutter App</h3>
+            <p>Real-time transit navigation with offline maps and predictive ETA using machine learning models.</p>
             <a href="#" class="project-link"><i class="fab fa-github"></i> View Project</a>
           </div>
         </div>
@@ -521,7 +624,7 @@
 
     <!-- Contact Section -->
     <section id="contact">
-      <h2><i class="fas fa-paper-plane"></i> Get In Touch</h2>
+      <h2><i class="fas fa-paper-plane"></i> Let's connect</h2>
       <div class="card">
         <div class="social-links">
           <a href="https://wa.me/251940976558" class="social-btn whatsapp" target="_blank">
@@ -538,16 +641,31 @@
           </a>
         </div>
         
-        <div style="margin-top: 1rem; text-align: center;">
-          <p><i class="fas fa-envelope"></i> sem21gere@gmail.com</p>
-          <p><i class="fas fa-map-marker-alt"></i> Available for remote work worldwide</p>
+        <div class="contact-info">
+          <p><i class="fas fa-envelope" style="color: #2563eb;"></i> sem21gere@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt" style="color: #2563eb;"></i> Remote · Worldwide</p>
+          <p><i class="fas fa-phone" style="color: #2563eb;"></i> +251 940 976 558</p>
         </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email address" required>
+          </div>
+          <div class="form-group">
+            <textarea rows="3" placeholder="Tell me about your project or just say hi!"></textarea>
+          </div>
+          <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
       </div>
     </section>
   </main>
 
   <footer>
-    <p><i class="far fa-copyright"></i> 2026 Sem Gere · Built with <i class="fas fa-heart" style="color:#dc2626;"></i> for innovation</p>
+    <p><i class="far fa-copyright"></i> 2026 Sem Gere · Built with <i class="fas fa-heart" style="color:#dc2626;"></i> and lots of coffee</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">AI Engineer · Full-Stack · Always open to interesting conversations</p>
   </footer>
 
   <button class="scroll-top" id="scrollTop">
@@ -555,7 +673,6 @@
   </button>
 
   <script>
-    // Dark mode toggle
     function toggleMode() {
       document.body.classList.toggle("dark");
       const icon = document.querySelector('.toggle i');
@@ -568,8 +685,7 @@
       }
     }
 
-    // Animated text rotation
-    const words = ["AI Agents", "Smart Apps", "ML Models", "Web Solutions", "Chatbots 🤖", "Cloud Systems"];
+    const words = ["AI Agents", "Smart Apps", "ML Models", "Web Solutions", "Chatbots 🤖", "Cloud Systems", "Student Projects"];
     let index = 0;
     const wordSpan = document.getElementById("changing-word");
     
@@ -584,7 +700,6 @@
       }
     }, 2500);
 
-    // Scroll to top button
     const scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
@@ -598,7 +713,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Smooth scroll for navigation
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
@@ -610,6 +724,12 @@
           }
         }
       });
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('🙌 Thanks for reaching out! I\'ll get back to you as soon as possible.');
+      this.reset();
     });
   </script>
 </body>
